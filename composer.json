@@ -1,0 +1,27 @@
+{
+    "name": "mozart/event-dispatcher",
+    "type": "library",
+    "description": "Mozart Event Dispatcher Library",
+    "keywords": [],
+    "homepage": "http://faizalpribadi.github/Event",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Faizal Pribadi",
+            "email": "faizal_pribadi@aol.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.10"
+    },
+    "autoload": {
+        "psr-0": { "Mozart\\Library\\Event\\": "" }
+    },
+    "target-dir": "Mozart/Library/Event",
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.1-dev"
+        }
+    }
+}
