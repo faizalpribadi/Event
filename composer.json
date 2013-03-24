@@ -2,7 +2,7 @@
     "name": "mozart/event-dispatcher",
     "type": "library",
     "description": "Mozart Event Dispatcher Library",
-    "keywords": [],
+    "keywords": ["event", "dispatcher", "observer"],
     "homepage": "http://faizalpribadi.github/Event",
     "license": "MIT",
     "authors": [
