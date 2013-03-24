@@ -11,6 +11,8 @@ $ php composer.phar install
 //optional create alias composer
 $ ln -s composer.phar /usr/bin/composer
 $ composer install
+$ composer install --dev 	// dev-master
+$ composer require mozart/event-dispatcher	// next typing "dev-master"
 ```
 
 Initialize Class Component
@@ -98,5 +100,6 @@ PHPUnit Test Suite
 ==================
 
 ```php
+$ cp phpunit.xml.dist phpunit.xml
 $ phpunit
 ````
