@@ -92,3 +92,11 @@ $dispatcher->addListener('news.event', function() {
     });
 $dispatcher->dispatch('news.event');
 ```
+
+
+PHPUnit Test Suite 
+==================
+
+```php
+$ phpunit
+````
