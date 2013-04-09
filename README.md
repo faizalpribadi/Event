@@ -23,6 +23,7 @@ Initialize Class Component
 require 'vendor/autoload.php'   // if youre install this library with composer
 use Mozart\Library\Event\Event;
 use Mozart\Library\Event\EventDispatcher;
+use Mozart\Library\Event\ObjectEvent;
 use Mozart\Library\Event\Listener\CustomListener;
 ```
 
@@ -42,7 +43,7 @@ Optional, custom listener to create default listener name on event
 Usage
 =====
 
-1. Event With Array Argument
+-. Event With Array Argument
 
 ```php
 <?php
@@ -69,7 +70,7 @@ $dispatcher->addListener('event.email.subscriber', array($listenerOne, 'emailSub
 $dispatcher->dispatch('event.email.subscriber');
 ```
 
-2. Event With Closure
+-. Event With Closure
 
 ```php
 <?php
@@ -95,6 +96,42 @@ $dispatcher->addListener('news.event', function() {
 $dispatcher->dispatch('news.event');
 ```
 
+-.Object Event Create Custom Definition Event From Specific Object
+
+```php
+<?php
+/**
+ * Email Subscriber Listener
+ */
+class EmailSubscriberListener
+{
+    public function sendDelivery(ObjectEvent $event)
+    {
+        if (isset($event['name']) && $event['name'] === 'email.subscriber') {
+            return $event['name'];
+        }
+
+        $event['send'];
+    }
+}
+$objectEvent = new ObjectEvent(
+    $subject = null, array(
+        'name'  => 'email.subsciber',
+        'send'  => array(
+            'list'  => array(
+                'faizal_pribadi@aol.com',
+                'alvindns@gmail.com'
+            )
+        )
+    )
+);
+$dispatcher->dispatch('email.subscriber', $objectEvent);
+foreach ($objectEvent['send'] as $emails => $email) {
+    foreach ($email as $listEmail) {
+        echo $listEmail;
+    }
+}
+```
 
 PHPUnit Test Suite 
 ==================
