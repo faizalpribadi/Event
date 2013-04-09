@@ -120,7 +120,7 @@ $objectEvent = new ObjectEvent(
         'send'  => array(
             'list'  => array(
                 'faizal_pribadi@aol.com',
-                'alvindns@gmail.com'
+                'nathan_wahyudi@arcacorp.com'
             )
         )
     )
