@@ -20,4 +20,4 @@ Release Features
 ================
 
  1. Change : 09-04-2013
-    * Added "ObjectFactoryEvent" { create subject definition event from object class }
+    * Added "ObjectEvent" { create subject definition event from object class }
