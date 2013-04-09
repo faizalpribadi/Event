@@ -12,5 +12,12 @@ CHANGELOG
 NEXT FEATURES UNDER DEVELOPMENT
 ===============================
 
- * Generic event
+ * Generic event { under-development }
  * Resolve event status { "active" , "non-active" , "down", "wake-up" }
+
+
+Release Features
+================
+
+ 1. Change : 09-04-2013
+    * Added "ObjectFactoryEvent" { create subject definition event from object class }
