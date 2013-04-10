@@ -76,7 +76,7 @@ class ObjectEvent extends Event implements ArrayAccess
         }
 
         throw new \InvalidArgumentException(
-            sprintf('Wrong parameter key "%s" , invalid returned the key')
+            sprintf('Wrong parameter key "%s" , invalid returned the key', $key)
         );
     }
 
