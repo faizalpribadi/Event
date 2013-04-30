@@ -15,7 +15,7 @@ use \ArrayAccess;
 use \ArrayIterator;
 
 /**
- * Class    ObjectEvent.php
+ * Class    ObjectEvent
  *
  * @author Faizal Pribadi <faizal_pribadi@aol.com>
  * @author Nathan Wahyudi <nathan@arcacorp.com>
