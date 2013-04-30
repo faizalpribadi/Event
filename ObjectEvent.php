@@ -17,8 +17,8 @@ use \ArrayIterator;
 /**
  * Class    ObjectEvent.php
  *
- * @author  Faizal Pribadi <faizal_pribadi@aol.com>
- * @author  Nathan Wahyudi <nathan@arcacorp.com>
+ * @author Faizal Pribadi <faizal_pribadi@aol.com>
+ * @author Nathan Wahyudi <nathan@arcacorp.com>
  */
 class ObjectEvent extends Event implements ArrayAccess
 {
