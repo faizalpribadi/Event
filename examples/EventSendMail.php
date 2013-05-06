@@ -1,6 +1,10 @@
 <?php
-$fileLoader = dirname(dirname(__FILE__));
-require $fileLoader . '/autoload.php';
+
+/**
+ * require autoload component with composer
+ */
+require '../vendor/autoload.php';
+
 
 use Mozart\Library\Event\EventDispatcher;
 use Mozart\Library\Event\Event;
@@ -105,5 +109,3 @@ class SendMailEvent
     }
 }
 
-$sendMail = new SendMailEvent();
-echo $sendMail->send();
