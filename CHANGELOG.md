@@ -21,3 +21,9 @@ Release Features
 
  1. Change : 09-04-2013
     * Added "ObjectEvent" { create subject definition event from object class }
+
+
+0.1.2
+=====
+
+ * Added examples class to use this library
