@@ -11,6 +11,8 @@ namespace Mozart\Library\Event;
  * file that was distributed with this source code.
  */
 
+use Mozart\Library\Event\WrongArgumentException;
+
 /**
  * Class EventDispatcher
  *
@@ -31,7 +33,7 @@ class EventDispatcher implements EventDispatcherInterface
     public function addListener($eventName, $callback, $priority = EventDispatcherInterface::SCOPE_PROTOTYPE)
     {
         if (!is_callable($callback) && !is_array($callback)) {
-            throw new \InvalidArgumentException("Invalid behaviour callback argument");
+            throw new WrongArgumentException("Invalid behaviour callback argument");
         }
 
         $this->dispatcher[$eventName][$priority][] = $callback;
