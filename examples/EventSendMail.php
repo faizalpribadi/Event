@@ -5,7 +5,6 @@
  */
 require '../vendor/autoload.php';
 
-
 use Mozart\Library\Event\EventDispatcher;
 use Mozart\Library\Event\Event;
 
@@ -108,4 +107,3 @@ class SendMailEvent
         return $this->dispatcher->dispatch(SendMailer::EVENT_SENDMAIL, $event);
     }
 }
-

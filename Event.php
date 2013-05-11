@@ -29,6 +29,11 @@ class Event implements EventInterface
     protected $stopPropagation = false;
 
     /**
+     * @var EventDispatcherInterface
+     */
+    protected $dispatcher;
+
+    /**
      * @see EventInterface::setEvent
      */
     public function setEvent($eventName)
@@ -42,6 +47,26 @@ class Event implements EventInterface
     public function getEvent()
     {
         return $this->event;
+    }
+
+    /**
+     * Set the event dispatcher
+     *
+     * @param EventDispatcherInterface $dispatcher
+     */
+    public function setDispatcher(EventDispatcherInterface $dispatcher)
+    {
+        $this->dispatcher = $dispatcher;
+    }
+
+    /**
+     * Get the event dispatcher
+     *
+     * @return EventDispatcherInterface
+     */
+    public function getDispatcher()
+    {
+        return $this->dispatcher;
     }
 
     /**
