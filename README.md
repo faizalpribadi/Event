@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/[FaizalPribadi]/[Event].png)](https://travis-ci.org/[FaizalPribadi]/[Event])
+
+
 # Mozart Event Dispatcher Library
 
 _This event library from Mozart Small MVC Framework implementation from [Observer Pattern](http://en.wikipedia.org/wiki/Observer_pattern)_
