@@ -1,5 +1,5 @@
 
-Master: [![Build Status](https://travis-ci.org/FaizalPribadi/Event.png?branch=master)](https://travis-ci.org/FaizalPribadi/Event)
+Master: v0.1.3 -  [![Build Status](https://travis-ci.org/FaizalPribadi/Event.png?branch=master)](https://travis-ci.org/FaizalPribadi/Event)
 
 # Mozart Event Dispatcher Library
 
