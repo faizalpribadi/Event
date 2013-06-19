@@ -28,7 +28,7 @@ class SendMail extends Event
     /**
      * @var null
      */
-    protected $mail = null;
+    protected $mail;
 
     /**
      * @param $mail
@@ -46,14 +46,6 @@ class SendMail extends Event
     public function getMail()
     {
         return $this->mail;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return $this->getMail();
     }
 }
 
