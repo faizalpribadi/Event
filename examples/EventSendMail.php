@@ -57,7 +57,10 @@ class SendMailListener
      */
     public function onSend(SendMail $sendMail)
     {
-        return $sendMail->setMail('this is mail content')->getMail();
+        $sendMail->setMail('this is mail content')->getMail();
+        $sendMail->stopPropagation();
+
+        return $sendMail;
     }
 }
 
