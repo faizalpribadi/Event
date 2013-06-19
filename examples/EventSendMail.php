@@ -1,10 +1,4 @@
 <?php
-
-/**
- * require autoload component with composer
- */
-require '../vendor/autoload.php';
-
 use Mozart\Library\Event\EventDispatcher;
 use Mozart\Library\Event\Event;
 
@@ -38,6 +32,8 @@ class SendMail extends Event
     public function setMail($mail)
     {
         $this->mail = $mail;
+
+        return $this;
     }
 
     /**
@@ -86,6 +82,7 @@ class SendMailEvent
         }
 
         $listener = new SendMailListener();
+        $listener->onSend(new SendMail());
         $this->dispatcher->addListener(SendMailer::EVENT_SENDMAIL, array($listener, 'onSend'));
     }
 
