@@ -1,5 +1,5 @@
 
-Master: v0.1.3 -  [![Build Status](https://travis-ci.org/FaizalPribadi/Event.png?branch=master)](https://travis-ci.org/FaizalPribadi/Event)
+[![Latest Stable Version](https://poser.pugx.org/mozart/event-dispatcher/v/stable.png)](https://packagist.org/packages/mozart/event-dispatcher) -  [![Build Status](https://travis-ci.org/FaizalPribadi/Event.png?branch=master)](https://travis-ci.org/FaizalPribadi/Event)
 
 # Mozart Event Dispatcher Library
 
