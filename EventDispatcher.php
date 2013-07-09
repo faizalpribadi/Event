@@ -11,7 +11,9 @@ namespace Mozart\Library\Event;
  * file that was distributed with this source code.
  */
 
+use Mozart\Library\Event\Subscriber\SubscriberInterface;
 use Mozart\Library\Event\WrongArgumentException;
+use Mozart\Library\Event\Subscriber\Subscriber;
 
 /**
  * Class EventDispatcher
@@ -20,7 +22,7 @@ use Mozart\Library\Event\WrongArgumentException;
  *
  * @author  Faizal Pribadi <faizal_pribadi@aol.com>
  */
-class EventDispatcher implements EventDispatcherInterface
+class EventDispatcher extends Subscriber implements EventDispatcherInterface
 {
     /**
      * @var array
@@ -96,6 +98,39 @@ class EventDispatcher implements EventDispatcherInterface
     {
         if (isset($this->dispatcher[$eventName])) {
             unset($this->dispatcher[$eventName]);
+        }
+    }
+
+    /**
+     * Add and store event for subscriber all other events
+     *
+     * @param SubscriberInterface $subscriber
+     *
+     * @throws \Exception
+     */
+    public function addSubscriber(SubscriberInterface $subscriber)
+    {
+        foreach ($subscriber->getSubscriberEvents() as $subscriberEvent => $params) {
+            if (!is_string($params)) {
+                throw new \Exception(
+                    sprintf('Subscribe the event "%s" must be string', $params)
+                );
+            }
+            $this->addListener($subscriberEvent, array($subscriber, $params));
+        }
+    }
+
+    /**
+     * Remove store event subscriber
+     *
+     * @param SubscriberInterface $subscriber
+     */
+    public function removeSubscriber(SubscriberInterface $subscriber)
+    {
+        if (is_array($subscriber->getSubscriberEvents())) {
+            foreach ($subscriber->getSubscriberEvents() as $subscriberEvent => $params) {
+                $this->removeListener($subscriberEvent, array($subscriber, $params));
+            }
         }
     }
 }
