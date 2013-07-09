@@ -27,3 +27,8 @@ Release Features
 =====
 
  * Added examples class to use this library
+
+0.1.4
+=====
+
+ * Added Subscriber allow for event listener
