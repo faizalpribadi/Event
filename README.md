@@ -136,7 +136,15 @@ foreach ($objectEvent['send'] as $emails => $email) {
 }
 ```
 
-PHPUnit Test Suite 
+_For full examples @see [examples folder](https://github.com/FaizalPribadi/Event/tree/master/examples)_
+
+| **Base Class**                                                                                                    |   **Definition**           |
+|-------------------------------------------------------------------------------------------------------------------|----------------------------|
+| [Sendmail Event](https://github.com/FaizalPribadi/Event/blob/master/examples/EventSendMail.php)                   | `Create one event listener`|
+| [Store Subscriber Event](https://github.com/FaizalPribadi/Event/blob/master/examples/StoreSubscriberEvent.php)    | `Allow subscriber to event`|
+
+
+PHPUnit Test Suite
 ==================
 
 ```php
