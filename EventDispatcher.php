@@ -102,28 +102,35 @@ class EventDispatcher extends Subscriber implements EventDispatcherInterface
     }
 
     /**
-     * Add and store event for subscriber all other events
+     * Added subscriber from event configuration
+     * This subscriber allow notified for event
      *
      * @param SubscriberInterface $subscriber
+     *
+     * @return mixed|void
      *
      * @throws \Exception
      */
     public function addSubscriber(SubscriberInterface $subscriber)
     {
         foreach ($subscriber->getSubscriberEvents() as $subscriberEvent => $params) {
-            if (!is_string($params)) {
-                throw new \Exception(
-                    sprintf('Subscribe the event "%s" must be string', $params)
-                );
+            if (is_string($params)) {
+                $this->addListener($subscriberEvent, array($subscriber, $params));
             }
-            $this->addListener($subscriberEvent, array($subscriber, $params));
+            if (is_array($params)) {
+                foreach ($params as $param) {
+                    $this->addListener($subscriberEvent, array($subscriber, $param));
+                }
+            }
         }
     }
 
     /**
-     * Remove store event subscriber
+     * Remove all subscriber from event configuration
      *
      * @param SubscriberInterface $subscriber
+     *
+     * @return mixed|void
      */
     public function removeSubscriber(SubscriberInterface $subscriber)
     {
