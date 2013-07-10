@@ -4,7 +4,7 @@ namespace Mozart\Library\Event\examples;
 use Mozart\Library\Event\Event;
 use Mozart\Library\Event\Subscriber\SubscriberInterface;
 
-class StoreSubscriberEvent
+class Product
 {
     protected $items = array();
 
@@ -46,7 +46,7 @@ final class StoreEventName
     const STORE_EVENT = 'store.event';
 }
 
-class StoreSubscriber implements SubscriberInterface
+class StoreSubscriberEvent implements SubscriberInterface
 {
 
     /**
