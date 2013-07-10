@@ -6,28 +6,47 @@ use Mozart\Library\Event\Subscriber\SubscriberInterface;
 
 class StoreSubscriberEvent
 {
-    public function render()
+    protected $items = array();
+
+    public function itemLists(array $items = array())
     {
-        return 'shopping';
+        foreach ($items as $name => $item) {
+            $this->items[$name] = $item;
+        }
+
+        return $this;
+    }
+
+    public function getItem($name)
+    {
+        return $this->items[$name];
     }
 }
 
-class FilterStoreEvent extends Event
+class StoreEvent extends Event
 {
-    protected $store;
+    private $product;
 
-    public function setStore(Store $store)
+    public function setProduct(Product $product)
     {
-        $this->store = $store;
+        $this->product = $product;
     }
 
-    public function getStore()
+    /**
+     * @return Product
+     */
+    public function getProduct()
     {
-        return $this->store;
+        return $this->product;
     }
 }
 
-class StoreSubscriberEvent implements SubscriberInterface
+final class StoreEventName
+{
+    const STORE_EVENT = 'store.event';
+}
+
+class StoreSubscriber implements SubscriberInterface
 {
 
     /**
@@ -41,15 +60,29 @@ class StoreSubscriberEvent implements SubscriberInterface
     {
         // TODO: Implement getSubscriberEvents() method.
         return array(
+            // example one
+            'store' => array('onStore', 8),
 
-            // subscribers
-             'subscribers' => 'onStore',
-             'event.all' => array('onStore')
+            // example two
+            StoreEventName::STORE_EVENT => 'onStore',
+
+            //customize example
+            'event.name' => array(
+                array('method.listener.one'), array('method.listener.two')
+            )
         );
+
     }
 
-    public function onStore(FilterStoreEvent $event)
+    public function onStore(StoreEvent $storeEvent)
     {
+        $storeEvent->setProduct(new Product());
+        $storeEvent->getProduct()->itemLists(array(
+                'products' => 'Books'
+            ))->getItem('products');
 
+        $storeEvent->stopPropagation();
+
+        return $storeEvent;
     }
 }
