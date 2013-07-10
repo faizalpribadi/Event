@@ -31,4 +31,4 @@ Release Features
 0.1.4
 =====
 
- * Added Subscriber allow for event listener
+ * Added Subscriber allow for event listener allow method `event.name => ( method.listener || array(method.listener) ), priority = {0,9}`
