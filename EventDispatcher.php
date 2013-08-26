@@ -12,7 +12,7 @@ namespace Mozart\Library\Event;
  */
 
 use Mozart\Library\Event\Subscriber\SubscriberInterface;
-use Mozart\Library\Event\WrongArgumentException;
+use Mozart\Library\Event\Exception\WrongArgumentException;
 use Mozart\Library\Event\Subscriber\Subscriber;
 
 /**
