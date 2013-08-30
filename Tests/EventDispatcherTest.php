@@ -11,15 +11,23 @@ namespace Mozart\Library\Event\Tests;
  * file that was distributed with this source code.
  */
 
+use Mozart\Library\Event\Event;
 use Mozart\Library\Event\EventDispatcher;
-use Mozart\Library\Event\Listener\CustomListener;
+
 
 class EventDispatcherTest extends \PHPUnit_Framework_TestCase
 {
+    const testEvent = 'test.event';
+
     /**
      * @var EventDispatcher
      */
     protected $eventDispatcher;
+
+    /**
+     * @var @TestEventListener
+     */
+    protected $listener;
 
     public function setUp()
     {
@@ -28,13 +36,31 @@ class EventDispatcherTest extends \PHPUnit_Framework_TestCase
         }
 
         $this->eventDispatcher = new EventDispatcher();
+        $this->listener = new TestEventListener();
+    }
+
+    public function testListener()
+    {
+        $this->assertFalse($this->eventDispatcher->hasListener(self::testEvent));
     }
 
     public function testAddListener()
     {
-        $this->assertTrue($this->eventDispatcher->hasListener(CustomListener::EVENT_AUTHOR));
-        $this->assertTrue($this->eventDispatcher->hasListener(CustomListener::EVENT_DATE));
-        $this->assertCount(1, $this->eventDispatcher->getListener(CustomListener::EVENT_AUTHOR));
-        $this->assertCount(1, $this->eventDispatcher->getListener(CustomListener::EVENT_DATE));
+        $this->eventDispatcher->addListener('test.event', array($this->listener, 'testEvent'), 10);
+        $this->eventDispatcher->dispatch('test.event');
+        $this->assertTrue($this->listener->invokedTest);
+    }
+}
+
+class TestEventListener
+{
+    public $invokedTest = false;
+
+    public function testEvent(Event $event)
+    {
+        $this->invokedTest = true;
+
+        $event->getEvent();
+        $event->stopPropagation();
     }
 }
