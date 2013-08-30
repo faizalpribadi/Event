@@ -1,0 +1,35 @@
+tools:
+    php_mess_detector:
+        enabled: true
+        extensions:
+            - php
+        command: phpmd
+        filter:
+            excluded_paths:
+                - 'vendor/*'
+                - 'app/*'
+                - 'web/*'
+            paths: {  }
+        config:
+            rulesets:
+                - codesize
+        path_configs: {  }
+    php_cpd:
+        enabled: true
+        command: phpcpd
+        min_lines: 5
+        min_tokens: 70
+        excluded_dirs: {  }
+        names:
+            - '*.php'
+    php_pdepend:
+        excluded_dirs:
+            - vendor
+        enabled: true
+        command: pdepend
+        configuration_file: null
+        suffixes:
+            - php
+before_commands: {  }
+after_commands: {  }
+artifacts: {  }
