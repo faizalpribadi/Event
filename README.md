@@ -144,10 +144,20 @@ _For full examples @see [examples folder](https://github.com/FaizalPribadi/Event
 | [Store Subscriber Event](https://github.com/FaizalPribadi/Event/blob/master/examples/StoreSubscriberEvent.php)    | `Allow subscriber to event`|
 
 
+Inject The Dispatcher
+=====================
+
+For inject the constructor `EventDispatcher`
+
+```php
+use Mozart\Library\Event\InjectDispatcher;
+
+$inject = new InjectDispatcher($dispatcher)
+```
+
 PHPUnit Test Suite
 ==================
 
 ```php
-$ cp phpunit.xml.dist phpunit.xml
 $ phpunit
 ````
