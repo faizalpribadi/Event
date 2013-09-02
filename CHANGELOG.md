@@ -32,3 +32,8 @@ Release Features
 =====
 
  * Added Subscriber allow for event listener allow method `event.name => ( method.listener || array(method.listener) ), priority = {0,9}`
+
+0.1.5
+=====
+
+ * Inject the constructor event dispatcher
