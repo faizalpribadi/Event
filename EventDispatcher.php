@@ -117,6 +117,7 @@ class EventDispatcher extends Subscriber implements EventDispatcherInterface
             if (is_string($params)) {
                 $this->addListener($subscriberEvent, array($subscriber, $params));
             }
+
             if (is_array($params)) {
                 foreach ($params as $param) {
                     $this->addListener($subscriberEvent, array($subscriber, $param));
