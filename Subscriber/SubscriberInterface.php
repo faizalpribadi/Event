@@ -21,7 +21,7 @@ interface SubscriberInterface
     /**
      * Get all method on event configuration
      *
-     * @return mixed
+     * @return array[]
      *
      * @api
      */
